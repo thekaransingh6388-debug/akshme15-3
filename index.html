@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <m<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1600045841042622');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1600045841042622&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->eta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <title>PANKAJ BHARDWAJ | Stock Market Telegram</title>
+    
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1600045841042622');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1600045841042622&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    
     <style>
         * {
             margin: 0;
@@ -275,14 +278,11 @@ src="https://www.facebook.com/tr?id=1600045841042622&ev=PageView&noscript=1"
             </div>
         </div>
 
-        <!-- ✅ BUTTON 1 - TOP (Electric Blue) -->
+        <!-- ✅ BUTTON 1 - TOP with Facebook Pixel -->
         <div class="top-button">
-<a href="https://t.me/+JBo2CvsRtnVjZWY1" 
-onclick="fbq('trackCustom', 'Telegram_Click'); 
-setTimeout(() => { window.location.href='https://t.me/+JBo2CvsRtnVjZWY1'; }, 300); 
-return false;">
-Join Telegram Channel
-</a>
+            <a href="#" class="join-btn" id="topJoinBtn" onclick="fbq('trackCustom', 'Telegram_Click_Top'); setTimeout(function(){ window.location.href='https://t.me/+JBo2CvsRtnVjZWY1'; }, 200); return false;">
+                📲 JOIN TELEGRAM CHANNEL
+            </a>
         </div>
 
         <div class="tagline">
@@ -318,15 +318,11 @@ Join Telegram Channel
             </div>
         </div>
 
-        <!-- ✅ BUTTON 2 - BOTTOM (Electric Blue) -->
+        <!-- ✅ BUTTON 2 - BOTTOM with Facebook Pixel -->
         <div class="bottom-button">
-            <a href="https://t.me/+JBo2CvsRtnVjZWY1" 
-onclick="fbq('trackCustom', 'Telegram_Click'); 
-setTimeout(() => { window.location.href='https://t.me/+JBo2CvsRtnVjZWY1'; }, 300); 
-return false;">
-Join Telegram
-</a>
+            <a href="#" class="join-btn" id="bottomJoinBtn" onclick="fbq('trackCustom', 'Telegram_Click_Bottom'); setTimeout(function(){ window.location.href='https://t.me/+JBo2CvsRtnVjZWY1'; }, 200); return false;">
                 📲 JOIN TELEGRAM CHANNEL
+            </a>
         </div>
 
         <!-- Trust Signals -->
@@ -345,20 +341,17 @@ Join Telegram
 </div>
 
 <script>
-    // Updated Telegram link
-    const topBtn = document.getElementById('topJoinBtn');
-    const bottomBtn = document.getElementById('bottomJoinBtn');
+    // Safety fallback for both buttons
     const channelLink = "https://t.me/+JBo2CvsRtnVjZWY1";
     
-    topBtn.href = channelLink;
-    bottomBtn.href = channelLink;
+    document.getElementById('topJoinBtn').addEventListener('click', function(e) {
+        // Pixel already fired via onclick, this is just fallback
+        console.log('Top button clicked - Tracking: Telegram_Click_Top');
+    });
     
-    function trackJoin(position) {
-        console.log(`${position} button clicked - Opening Telegram`);
-    }
-    
-    topBtn.addEventListener('click', function() { trackJoin('Top Button'); });
-    bottomBtn.addEventListener('click', function() { trackJoin('Bottom Button'); });
+    document.getElementById('bottomJoinBtn').addEventListener('click', function(e) {
+        console.log('Bottom button clicked - Tracking: Telegram_Click_Bottom');
+    });
 </script>
 
 </body>
