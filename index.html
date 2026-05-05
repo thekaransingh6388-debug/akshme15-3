@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>PANKAJ BHARDWAJ | Stock Market Telegram</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Poppins', 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 16px;
+        }
+
+        /* mobile first design */
+        .card {
+            max-width: 100%;
+            width: 100%;
+            background: #111111;
+            border-radius: 40px;
+            border: 1px solid #222222;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            overflow: hidden;
+        }
+
+        .content {
+            padding: 24px 20px 36px;
+        }
+
+        /* logo + name section */
+        .channel-badge {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .logo-circle {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: #1a1a1a;
+            border: 2px solid #ff9800;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            flex-shrink: 0;
+        }
+
+        .logo-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .channel-name h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .channel-name p {
+            color: #888888;
+            font-size: 0.75rem;
+            margin-top: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .verified {
+            background: #ff980020;
+            padding: 3px 10px;
+            border-radius: 30px;
+            font-size: 0.65rem;
+            color: #ff9800;
+            font-weight: 600;
+        }
+
+        /* BUTTON - STANDOUT COLOUR (Neon Orange/Gold) - Different from background */
+        .join-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            background: linear-gradient(135deg, #ff9800, #f57c00);
+            border: none;
+            padding: 16px 12px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #ffffff;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 60px;
+            transition: all 0.2s ease;
+            box-shadow: 0 8px 20px rgba(255,152,0,0.3);
+            letter-spacing: 0.5px;
+            cursor: pointer;
+        }
+
+        .join-btn:hover {
+            background: linear-gradient(135deg, #ff9800, #e65100);
+            transform: scale(0.98);
+            box-shadow: 0 4px 12px rgba(255,152,0,0.4);
+        }
+
+        .join-btn:active {
+            transform: scale(0.96);
+        }
+
+        /* top button ke baad spacing */
+        .top-button {
+            margin-bottom: 24px;
+        }
+
+        /* bottom button ke liye */
+        .bottom-button {
+            margin-top: 28px;
+            margin-bottom: 12px;
+        }
+
+        .tagline {
+            background: #1a1a1a;
+            padding: 12px 16px;
+            border-radius: 24px;
+            margin: 20px 0 20px 0;
+            border-left: 4px solid #ff9800;
+            font-weight: 500;
+            color: #cccccc;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        /* Points section */
+        .points-section {
+            background: #0d0d0d;
+            border-radius: 28px;
+            padding: 20px 16px;
+            margin: 20px 0 0;
+            border: 1px solid #222222;
+        }
+
+        .points-section h3 {
+            color: #ff9800;
+            font-size: 1rem;
+            margin-bottom: 16px;
+            text-align: center;
+            letter-spacing: 0px;
+        }
+
+        .point-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+            padding: 5px 0;
+        }
+
+        .point-icon {
+            font-size: 22px;
+            min-width: 32px;
+        }
+
+        .point-text {
+            color: #e0e0e0;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .point-text strong {
+            color: #ff9800;
+            font-weight: 700;
+        }
+
+        .disclaimer {
+            background: #ff980010;
+            border-left: 3px solid #ff9800;
+            padding: 10px 12px;
+            margin-top: 16px;
+            border-radius: 16px;
+            font-size: 0.75rem;
+            color: #ffb74d;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .trust-badge {
+            text-align: center;
+            font-size: 0.65rem;
+            color: #666666;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        hr {
+            border-color: #222222;
+            margin: 20px 0 12px;
+        }
+
+        .footer-text {
+            text-align: center;
+            font-size: 0.65rem;
+            color: #444444;
+            margin-top: 8px;
+        }
+
+        /* mobile touch optimizations */
+        @media (max-width: 480px) {
+            .content {
+                padding: 20px 16px 30px;
+            }
+            .channel-name h2 {
+                font-size: 1.4rem;
+            }
+            .logo-circle {
+                width: 60px;
+                height: 60px;
+            }
+            .join-btn {
+                padding: 14px 10px;
+                font-size: 1rem;
+            }
+            .point-text {
+                font-size: 0.85rem;
+            }
+            .tagline {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* extra large phones ke liye */
+        @media (min-width: 500px) {
+            .card {
+                max-width: 460px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div class="content">
+        <!-- Logo + Channel Name -->
+        <div class="channel-badge">
+            <div class="logo-circle">
+                <img src="https://karanmetalabe.com/wp-content/uploads/2025/11/download-9.jpg" alt="PANKAJ BHARDWAJ">
+            </div>
+            <div class="channel-name">
+                <h2>PANKAJ BHARDWAJ</h2>
+                <p>📈 Stock Market Expert <span class="verified">✓ OFFICIAL TG</span></p>
+            </div>
+        </div>
+
+        <!-- ✅ BUTTON 1 - TOP (Standout Colour - Orange/Gold) -->
+        <div class="top-button">
+            <a href="https://t.me/+dZLZk_JJrs1jYjg1" target="_blank" class="join-btn" id="topJoinBtn">
+                📲 JOIN TELEGRAM CHANNEL
+            </a>
+        </div>
+
+        <div class="tagline">
+            🎯 Professional Options & Index Trading | Join Winning Journey 🚀
+        </div>
+
+        <!-- Points Section -->
+        <div class="points-section">
+            <h3>⚡ NIFTY • BANKNIFTY • STOCK OPTIONS ⚡</h3>
+            
+            <div class="point-item">
+                <span class="point-icon">🎯</span>
+                <span class="point-text"><strong>✅ Get up to 100-300 Points</strong></span>
+            </div>
+            
+            <div class="point-item">
+                <span class="point-icon">📊</span>
+                <span class="point-text"><strong>✅ 80-90% Accuracy</strong></span>
+            </div>
+            
+            <div class="point-item">
+                <span class="point-icon">📞</span>
+                <span class="point-text"><strong>✅ 3-4 observational Call daily</strong></span>
+            </div>
+            
+            <div class="point-item">
+                <span class="point-icon">🏆</span>
+                <span class="point-text"><strong>✅ 3 daily best trade for all</strong></span>
+            </div>
+            
+            <div class="disclaimer">
+                ⚠️ DISCLAIMER :- DAILY FREE DEMO CALL ✅
+            </div>
+        </div>
+
+        <!-- ✅ BUTTON 2 - BOTTOM (Same Standout Colour) -->
+        <div class="bottom-button">
+            <a href="https://t.me/+dZLZk_JJrs1jYjg1" target="_blank" class="join-btn" id="bottomJoinBtn">
+                📲 JOIN TELEGRAM CHANNEL
+            </a>
+        </div>
+
+        <!-- Trust Signals -->
+        <div class="trust-badge">
+            <span>🔒 100% Free Channel</span>
+            <span>⏱️ Live Market Updates</span>
+            <span>🎯 Nifty/BankNifty Focus</span>
+            <span>⭐ 10k+ Active Members</span>
+        </div>
+
+        <hr />
+        <div class="footer-text">
+            📍 PANKAJ BHARDWAJ | Trade With Accuracy & Discipline
+        </div>
+    </div>
+</div>
+
+<script>
+    // Both buttons with correct Telegram link
+    const topBtn = document.getElementById('topJoinBtn');
+    const bottomBtn = document.getElementById('bottomJoinBtn');
+    const channelLink = "https://t.me/+dZLZk_JJrs1jYjg1";
+    
+    topBtn.href = channelLink;
+    bottomBtn.href = channelLink;
+    
+    // Click tracking for mobile
+    function trackJoin(position) {
+        console.log(`${position} button clicked - Opening Telegram`);
+    }
+    
+    topBtn.addEventListener('click', function() { trackJoin('Top Button'); });
+    bottomBtn.addEventListener('click', function() { trackJoin('Bottom Button'); });
+</script>
+
+</body>
+</html>
