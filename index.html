@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>PANKAJ BHARDWAJ | Stock Market Telegram Channel</title>
     
-    <!-- ✅ NEW META PIXEL (ID: 1551800716407532) with full event tracking -->
+    <!-- ✅ META PIXEL (ID: 2483419995475953) with full event tracking -->
     <script>
         !function(f,b,e,v,n,t,s)
         {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -15,12 +15,12 @@
         t.src=v;s=b.getElementsByTagName(e)[0];
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '1551800716407532');
+        fbq('init', '2483419995475953');
         fbq('track', 'PageView');
     </script>
     <noscript>
         <img height="1" width="1" style="display:none" 
-             src="https://www.facebook.com/tr?id=1551800716407532&ev=PageView&noscript=1"/>
+             src="https://www.facebook.com/tr?id=2483419995475953&ev=PageView&noscript=1"/>
     </noscript>
     <!-- END META PIXEL -->
 
@@ -45,7 +45,6 @@
             margin: 0 auto;
         }
 
-        /* Premium Glassmorphism Card Effect */
         .card {
             background: #ffffff;
             border-radius: 56px;
@@ -101,7 +100,6 @@
             box-shadow: 0 2px 6px rgba(0,0,0,0.05);
         }
 
-        /* Dark Classy Buttons with pulse hover effect */
         .btn-telegram {
             display: inline-flex;
             align-items: center;
@@ -144,7 +142,6 @@
             margin: 35px 0 30px;
         }
 
-        /* benefits grid - clean and modern */
         .benefits-grid {
             background: #f0f9f5;
             border-radius: 48px;
@@ -211,12 +208,6 @@
             margin-top: 32px;
             border-left: 7px solid #0a2f44;
             letter-spacing: 0.3px;
-        }
-
-        .btn-last-wrapper {
-            display: flex;
-            justify-content: center;
-            margin-top: 30px;
         }
 
         hr {
@@ -297,7 +288,7 @@
             <div class="owner-name">🔰 PANKAJ BHARDWAJ 🔰</div>
         </div>
 
-        <!-- ✅ EXACTLY 2 BUTTONS (both track "Lead", "Subscribe", "CompleteRegistration" with new pixel) -->
+        <!-- ✅ EXACTLY 2 TELEGRAM BUTTONS -->
         <div class="button-wrapper">
             <a href="https://t.me/+RjkZkSlLr1s1MDM1" target="_blank" rel="noopener noreferrer" class="btn-telegram" id="joinBtnLeft">
                 <span class="flex-icon">📱</span> Join Telegram
@@ -345,11 +336,11 @@
     </div>
 </div>
 
-<!-- ✅ ENHANCED TRACKING SCRIPT: new pixel + Lead & Subscribe events on both buttons -->
+<!-- ✅ ENHANCED TRACKING SCRIPT: Pixel 2483419995475953 -->
 <script>
     (function() {
-        // NEW PIXEL ID
-        const PIXEL_ID = "1551800716407532";
+        // PIXEL ID
+        const PIXEL_ID = "2483419995475953";
         const BRAND_NAME = "PANKAJ_BHARDWAJ";
         const TELEGRAM_LINK = "https://t.me/+RjkZkSlLr1s1MDM1";
         
@@ -360,7 +351,7 @@
             };
         }
         
-        // Additional PageView safety (already fired, but we double-check)
+        // Additional PageView with enhanced data
         if (typeof fbq !== 'undefined') {
             fbq('track', 'PageView', {
                 page_type: 'Telegram_Subscribe_Landing',
@@ -377,10 +368,10 @@
             });
         }
         
-        // Track Lead + Subscribe + CompleteRegistration events on both buttons
+        // Track events on both buttons
         function trackJoinEvent(buttonElement) {
             if (typeof fbq !== 'undefined') {
-                // 1) Lead event (standard conversion)
+                // 1) Lead event (primary conversion)
                 fbq('track', 'Lead', {
                     content_name: 'Telegram_Channel_Join',
                     source: 'landing_page_button',
@@ -400,7 +391,7 @@
                     pixel_id: PIXEL_ID
                 });
                 
-                // 3) CompleteRegistration (for subscription flow)
+                // 3) CompleteRegistration (subscription flow)
                 fbq('track', 'CompleteRegistration', {
                     event_source: 'telegram_join_click',
                     content_type: 'channel_subscription',
@@ -426,13 +417,14 @@
                     pixel_id: PIXEL_ID
                 });
                 
-                console.log(`✅ Pixel events (Lead, Subscribe, CompleteRegistration, Contact, CustomEvent) fired from ${buttonElement.id || 'button'} | Pixel: ${PIXEL_ID}`);
+                console.log(`✅ Pixel events fired from ${buttonElement.id || 'button'} | Pixel: ${PIXEL_ID}`);
+                console.log(`📍 Lead, Subscribe, CompleteRegistration, Contact, CustomEvent`);
             } else {
-                console.warn("❌ Pixel not initialized, but action captured.");
+                console.warn("❌ Pixel not initialized.");
             }
         }
         
-        // Attach click listeners to both buttons (exactly 2)
+        // Attach click listeners to both buttons
         const buttons = document.querySelectorAll('.btn-telegram');
         buttons.forEach(btn => {
             // Ensure correct link
@@ -443,31 +435,15 @@
             btn.setAttribute('rel', 'noopener noreferrer');
             
             btn.addEventListener('click', function(e) {
-                // Fire tracking before navigation (pixel uses sendBeacon / image)
                 trackJoinEvent(this);
-                // Allow normal navigation to Telegram
                 return true;
             });
         });
         
-        // Additional: track when user hovers on any button (engagement)
-        buttons.forEach(btn => {
-            btn.addEventListener('mouseenter', function() {
-                if (typeof fbq !== 'undefined') {
-                    fbq('trackCustom', 'ButtonHoverIntent', {
-                        button_text: this.innerText.trim(),
-                        button_id: this.id || 'default',
-                        creator: BRAND_NAME,
-                        pixel_id: PIXEL_ID
-                    });
-                    console.log(`✅ Hover tracked on ${this.id || 'button'}`);
-                }
-            });
-        });
-        
-        // Scroll depth tracking (engagement)
+        // Scroll depth tracking
         let depth25 = false, depth50 = false, depth75 = false, depth90 = false;
         window.addEventListener('scroll', function() {
+            if (typeof fbq === 'undefined') return;
             const winHeight = window.innerHeight;
             const docHeight = document.documentElement.scrollHeight;
             const scrolled = window.scrollY;
@@ -475,38 +451,38 @@
             
             if (!depth25 && percent >= 0.25) {
                 depth25 = true;
-                if (typeof fbq !== 'undefined') fbq('trackCustom', 'ScrollDepth', { depth: '25%', creator: BRAND_NAME, pixel_id: PIXEL_ID });
+                fbq('trackCustom', 'ScrollDepth', { depth: '25%', creator: BRAND_NAME, pixel_id: PIXEL_ID });
             }
             if (!depth50 && percent >= 0.5) {
                 depth50 = true;
-                if (typeof fbq !== 'undefined') fbq('trackCustom', 'ScrollDepth', { depth: '50%', creator: BRAND_NAME, pixel_id: PIXEL_ID });
+                fbq('trackCustom', 'ScrollDepth', { depth: '50%', creator: BRAND_NAME, pixel_id: PIXEL_ID });
             }
             if (!depth75 && percent >= 0.75) {
                 depth75 = true;
-                if (typeof fbq !== 'undefined') fbq('trackCustom', 'ScrollDepth', { depth: '75%', creator: BRAND_NAME, pixel_id: PIXEL_ID });
+                fbq('trackCustom', 'ScrollDepth', { depth: '75%', creator: BRAND_NAME, pixel_id: PIXEL_ID });
             }
             if (!depth90 && percent >= 0.90) {
                 depth90 = true;
-                if (typeof fbq !== 'undefined') fbq('trackCustom', 'ScrollDepth', { depth: '90%', creator: BRAND_NAME, pixel_id: PIXEL_ID });
+                fbq('trackCustom', 'ScrollDepth', { depth: '90%', creator: BRAND_NAME, pixel_id: PIXEL_ID });
             }
         });
         
-        // Time on page (beforeunload)
+        // Time on page tracking
         let startTime = Date.now();
         window.addEventListener('beforeunload', function() {
+            if (typeof fbq === 'undefined') return;
             const timeSpent = Math.round((Date.now() - startTime) / 1000);
-            if (typeof fbq !== 'undefined' && timeSpent > 2) {
+            if (timeSpent > 2) {
                 fbq('trackCustom', 'TimeOnPage', {
                     seconds_spent: timeSpent,
                     page_type: 'subscription_landing',
                     creator: BRAND_NAME,
                     pixel_id: PIXEL_ID
                 });
-                console.log(`✅ TimeOnPage tracked: ${timeSpent}s`);
             }
         });
         
-        // Track button impression (when buttons become visible)
+        // Button impression tracking
         if (typeof fbq !== 'undefined' && 'IntersectionObserver' in window) {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -519,7 +495,6 @@
                             creator: BRAND_NAME,
                             pixel_id: PIXEL_ID
                         });
-                        console.log(`✅ Button impression tracked: ${btn.id || 'button'}`);
                         observer.unobserve(btn);
                     }
                 });
@@ -528,19 +503,19 @@
             buttons.forEach(btn => observer.observe(btn));
         }
         
-        console.log(`✅ PANKAJ BHARDWAJ – New Pixel (${PIXEL_ID}) active | 2 buttons tracked for Lead, Subscribe, CompleteRegistration, Contact, CustomEvent`);
+        console.log(`✅ PANKAJ BHARDWAJ – Pixel (${PIXEL_ID}) active | 2 buttons tracked`);
         console.log(`✅ Telegram Link: ${TELEGRAM_LINK}`);
     })();
 </script>
 
-<!-- Extra noscript fallback for new pixel -->
+<!-- Noscript fallback for critical events -->
 <noscript>
     <div style="display:none;">
-        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1551800716407532&ev=Lead&noscript=1"/>
-        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1551800716407532&ev=Subscribe&noscript=1"/>
-        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1551800716407532&ev=CompleteRegistration&noscript=1"/>
-        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1551800716407532&ev=Contact&noscript=1"/>
-        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1551800716407532&ev=ViewContent&noscript=1"/>
+        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2483419995475953&ev=Lead&noscript=1"/>
+        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2483419995475953&ev=Subscribe&noscript=1"/>
+        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2483419995475953&ev=CompleteRegistration&noscript=1"/>
+        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2483419995475953&ev=Contact&noscript=1"/>
+        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2483419995475953&ev=ViewContent&noscript=1"/>
     </div>
 </noscript>
 
