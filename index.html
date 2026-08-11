@@ -303,10 +303,10 @@
 
 <script>
     (function() {
-        // THE CORRECT TELEGRAM CHANNEL LINK (NEW LINK)
+        // THE CORRECT TELEGRAM CHANNEL LINK
         const TELEGRAM_LINK = "https://t.me/+RjkZkSlLr1s1MDM1";
         
-        // NEW PIXEL ID
+        // PIXEL ID
         const PIXEL_ID = "2483419995475953";
         const BRAND_NAME = "PANKAJ_BHARDWAJ";
         
@@ -430,7 +430,7 @@
             btn.addEventListener('click', trackTelegramClick);
         });
         
-        // Page load tracking with NEW Pixel
+        // Page load tracking with Pixel
         window.addEventListener('load', function() {
             if (typeof fbq !== 'undefined' && fbq !== null && typeof fbq === 'function') {
                 // Enhanced PageView
@@ -452,7 +452,7 @@
                     pixel_id: PIXEL_ID,
                     brand: BRAND_NAME
                 });
-                console.log('✅ PageView & custom landing event tracked with NEW Pixel:', PIXEL_ID);
+                console.log('✅ PageView & custom landing event tracked with Pixel:', PIXEL_ID);
             }
             
             // Verify all telegram links
@@ -498,7 +498,7 @@
             }
         });
         
-        console.log('🚀 NEW Pixel Active:', PIXEL_ID);
+        console.log('🚀 Pixel Active:', PIXEL_ID);
         console.log('📊 2 Telegram buttons with full tracking');
         console.log('🔗 Telegram Link:', TELEGRAM_LINK);
         console.log('✅ Events: Lead, Subscribe, Contact, JoinTelegramClick, PankajBhardwajSubscription');
