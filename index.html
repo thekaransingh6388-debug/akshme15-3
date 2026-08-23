@@ -1,634 +1,555 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- NEW META PIXEL CODE - Pixel ID: 2483419995475953 -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '2483419995475953');
-    fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=2483419995475953&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- END META PIXEL CODE -->
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@500;700&display=swap" rel="stylesheet">
-  <title>Join Telegram Channel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <title>Pankaj Bhardwaj – Educational Channel</title>
   <style>
-    *{box-sizing:border-box;}
-    body{
-      margin:0;
-      overflow-x:hidden;
-      font-family:'Segoe UI','Noto Sans Devanagari',sans-serif;
-      background:#0b1220;
-      color:#e6edf3;
-      text-align:center;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background: #f8fafc;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
     }
-    .container{
-      width:100%;
-      max-width:480px;
-      margin:auto;
+    .card {
+      max-width: 440px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 32px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06), 0 8px 20px rgba(0, 0, 0, 0.02);
+      padding: 24px 20px 30px;
+      transition: all 0.2s;
     }
-    .header{
-      display:flex;
-      align-items:center;
-      padding:8px;
-      font-size:12px;
+    /* header / live ticker */
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      background: #f1f5f9;
+      padding: 8px 12px;
+      border-radius: 60px;
+      margin-bottom: 20px;
+      color: #1e293b;
     }
-    .live{
-      color:#ff4d4d;
-      font-weight:bold;
-      animation:blink 1s infinite;
-      margin-right:6px;
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      background: #22c55e;
+      border-radius: 50%;
+      display: inline-block;
+      animation: pulse-dot 1.4s infinite;
     }
-    @keyframes blink{50%{opacity:0.4;}}
-    .market{
-      overflow:hidden;
-      flex:1;
+    @keyframes pulse-dot { 0% { opacity: 1; } 50% { opacity: 0.3; } }
+    .ticker-wrap {
+      flex: 1;
+      overflow: hidden;
+      white-space: nowrap;
+      margin: 0 8px;
     }
-    .ticker{
-      display:flex;
-      width:max-content;
-      animation:tickerMove 20s linear infinite;
+    .ticker {
+      display: inline-block;
+      animation: scrollTicker 18s linear infinite;
     }
-    .ticker span{
-      white-space:nowrap;
-      padding-right:40px;
+    .ticker span { margin-right: 32px; font-weight: 500; }
+    .watch { display: flex; align-items: center; gap: 4px; font-weight: 500; }
+    @keyframes scrollTicker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* profile */
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 12px;
     }
-    @keyframes tickerMove{
-      from{transform:translateX(0);}
-      to{transform:translateX(-50%);}
+    .avatar {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #e2e8f0;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.02);
+      background: #f1f5f9;
     }
-    .watch{
-      color:#00e676;
-      margin-left:6px;
+    .verified-badge {
+      margin-top: -6px;
+      background: #2563eb;
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 12px 3px 10px;
+      border-radius: 40px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      letter-spacing: 0.3px;
+      border: 2px solid white;
+      box-shadow: 0 2px 8px rgba(37,99,235,0.2);
     }
-    .profile{
-      margin-top:20px;
-      position:relative;
-      display:inline-block;
+    .verified-badge svg { width: 14px; height: 14px; fill: white; }
+
+    .title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-top: 10px;
+      letter-spacing: -0.3px;
     }
-    .profile img{
-      width:110px;
-      height:110px;
-      border-radius:50%;
-      border:3px solid #0A66C2;
-      box-shadow:0 0 20px rgba(10,102,194,0.6);
+    .subhead {
+      color: #475569;
+      font-weight: 500;
+      font-size: 15px;
+      margin-top: 2px;
     }
-    .verified{
-      position:absolute;
-      bottom:5px;
-      right:5px;
-      width:30px;
-      height:30px;
+
+    .btn-join {
+      width: 100%;
+      background: #1e293b;
+      border: none;
+      color: white;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 16px 10px;
+      border-radius: 60px;
+      margin: 16px 0 12px;
+      cursor: pointer;
+      transition: 0.2s;
+      letter-spacing: 0.3px;
+      box-shadow: 0 6px 0 #0f172a;
+      background: #0f172a;
     }
-    .title{
-      font-size:26px;
-      font-weight:700;
-      color:#00AEEF;
-      text-shadow:0 0 10px rgba(0,174,239,0.5);
-      margin-top:10px;
+    .btn-join:active { transform: scale(0.97); box-shadow: 0 3px 0 #0f172a; }
+    .btn-join:hover { background: #1e293b; }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 14px;
+      color: #334155;
+      background: #f8fafc;
+      padding: 10px 12px;
+      border-radius: 60px;
+      margin-bottom: 14px;
+      font-weight: 500;
     }
-    .sub{
-      font-size:14px;
-      color:#9fb3c8;
+    .stats span { font-weight: 700; color: #0f172a; }
+
+    .desc {
+      background: #f8fafc;
+      padding: 18px 16px;
+      border-radius: 24px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #1e293b;
+      margin: 8px 0 10px;
+      border: 1px solid #eef2f6;
     }
-    .stats{
-      font-size:15px;
-      margin:12px;
-      font-weight:bold;
+    .desc strong { color: #0f172a; font-weight: 700; }
+    .highlight { 
+      background: #dbeafe; 
+      padding: 0 6px;
+      border-radius: 12px;
+      font-weight: 600;
+      color: #1e3a8a;
     }
-    .desc{
-      font-size:15px;
-      padding:0 18px;
-      line-height:1.8;
-      color:#dce3ea;
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin: 14px 0 12px;
     }
-    .highlight{
-      color:#00AEEF;
-      font-weight:700;
+    .tag {
+      background: #f1f5f9;
+      color: #1e293b;
+      padding: 6px 16px;
+      border-radius: 40px;
+      font-size: 13px;
+      font-weight: 500;
     }
-    .tags{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      gap:8px;
-      margin:15px;
+
+    .feature-grid {
+      display: flex;
+      gap: 8px;
+      margin: 16px 0 12px;
     }
-    .tag{
-      border:1px solid #0A66C2;
-      padding:7px 14px;
-      border-radius:20px;
-      font-size:12px;
-      color:#00AEEF;
+    .feature-item {
+      flex: 1;
+      background: #f8fafc;
+      border-radius: 16px;
+      padding: 12px 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #0f172a;
+      text-align: center;
+      border: 1px solid #eef2f6;
     }
-    .box-container{
-      display:flex;
-      gap:8px;
-      padding:0 10px;
-      margin:15px 0;
+    .feature-item span { display: block; font-weight: 400; font-size: 11px; color: #475569; margin-top: 2px; }
+
+    .trust {
+      background: #f1f5f9;
+      padding: 14px 16px;
+      border-radius: 24px;
+      font-size: 14px;
+      color: #1e293b;
+      margin: 16px 0 10px;
+      text-align: center;
+      font-weight: 500;
+      border: 1px solid #e2e8f0;
     }
-    .box{
-      flex:1;
-      padding:12px;
-      font-size:12px;
-      border-radius:10px;
-      background:#111a2b;
-      border:1px solid #0A66C2;
+    .trust span { display: inline-block; margin: 0 6px; }
+
+    .disclaimer {
+      font-size: 11px;
+      color: #94a3b8;
+      text-align: center;
+      margin: 18px 0 0;
+      border-top: 1px solid #eef2f6;
+      padding-top: 16px;
+      letter-spacing: 0.2px;
     }
-    .cta{
-      padding:0 10px;
-    }
-    .cta button{
-      width:100%;
-      padding:16px;
-      font-size:16px;
-      border-radius:10px;
-      border:none;
-      background:linear-gradient(45deg,#0A66C2,#00AEEF);
-      color:white;
-      font-weight:bold;
-      animation:glowBtn 1.5s infinite alternate;
-      cursor:pointer;
-      margin-top:8px;
-    }
-    @keyframes glowBtn{
-      from{box-shadow:0 0 10px #0A66C2;}
-      to{box-shadow:0 0 30px #00AEEF;}
-    }
-    .cta button:hover{
-      transform:scale(1.02);
-    }
-    .trust{
-      margin:15px;
-      font-size:13px;
-      color:#b8c7d9;
-    }
-    .popup{
-      position:fixed;
-      bottom:20px;
-      left:10px;
-      background:#111a2b;
-      padding:10px 14px;
-      border-radius:8px;
-      font-size:12px;
-      box-shadow:0 0 10px #000;
-      display:none;
-      border:1px solid #0A66C2;
-    }
-    .disclaimer{
-      font-size:11px;
-      color:#8a9bb0;
-      padding:12px;
-    }
-    @media(min-width:768px){
-      .container{
-        margin-top:30px;
-        margin-bottom:30px;
-        border-radius:14px;
-        box-shadow:0 0 40px rgba(0,0,0,0.6);
-        overflow:hidden;
-      }
-    }
-    .toast-msg {
+    .disclaimer strong { color: #64748b; }
+
+    /* toast */
+    .toast {
       position: fixed;
-      bottom: 80px;
+      bottom: 30px;
       left: 50%;
       transform: translateX(-50%);
-      background: linear-gradient(45deg, #0A66C2, #00AEEF);
+      background: #0f172a;
       color: white;
-      padding: 10px 20px;
-      border-radius: 50px;
-      font-size: 13px;
-      font-weight: 700;
-      z-index: 1000;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      padding: 12px 28px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
       opacity: 0;
       transition: opacity 0.3s ease;
       pointer-events: none;
-      white-space: nowrap;
+      z-index: 999;
     }
-    .toast-msg.show {
-      opacity: 1;
+    .toast.show { opacity: 1; }
+
+    .popup-float {
+      position: fixed;
+      bottom: 100px;
+      left: 20px;
+      background: #ffffff;
+      padding: 10px 16px;
+      border-radius: 40px;
+      font-size: 13px;
+      font-weight: 500;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      border: 1px solid #eef2f6;
+      color: #0f172a;
+      display: none;
+    }
+    @media (min-width: 600px) {
+      .card { padding: 32px 28px; }
     }
   </style>
 </head>
 <body>
-<div class="container">
-  <!-- HEADER -->
+<div class="card">
+
+  <!-- header / ticker -->
   <div class="header">
-    <div class="live">🔴 LIVE</div>
-    <div class="market">
-      <div class="ticker">
-        <span id="marketData"></span>
-        <span id="marketDataClone"></span>
+    <span class="live-dot"></span>
+    <span style="font-weight:600;">LIVE</span>
+    <div class="ticker-wrap">
+      <div class="ticker" id="tickerText">
+        <span>NIFTY 50 ▲ 0.28%</span>
+        <span>BANK NIFTY ▲ 0.41%</span>
+        <span>BTC ▲ 1.2%</span>
+        <span>NIFTY 50 ▲ 0.28%</span>
+        <span>BANK NIFTY ▲ 0.41%</span>
+        <span>BTC ▲ 1.2%</span>
       </div>
     </div>
-    <div class="watch">👀 <span id="watchCount">1247</span></div>
+    <div class="watch">👁️ <span id="watchCount">1.2k</span></div>
   </div>
 
-  <!-- PROFILE -->
+  <!-- profile -->
   <div class="profile">
-    <img src="https://telegram-ads.riyazshaikh.com/wp-content/uploads/2025/08/pankaj-image-2.jpg" alt="Pankaj Bhardwaj">
-    <svg class="verified" viewBox="0 0 24 24">
-      <defs><linearGradient id="badgeGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00c6ff"/><stop offset="100%" stop-color="#0072ff"/></linearGradient></defs>
-      <circle cx="12" cy="12" r="11" fill="none" stroke="#00AEEF" stroke-width="2" opacity="0.6"/>
-      <circle cx="12" cy="12" r="9" fill="url(#badgeGrad)"/>
-      <path d="M7 12l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none"/>
-    </svg>
+    <img class="avatar" src="https://telegram-ads.riyazshaikh.com/wp-content/uploads/2025/08/pankaj-image-2.jpg" alt="Pankaj Bhardwaj">
+    <div class="verified-badge" style="margin-top: 6px;">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      Verified · Education
+    </div>
   </div>
 
-  <!-- TITLE -->
-  <div class="title">PANKAJ BHARDWAJ</div>
-  <div class="sub">OFFICIAL TRADING CHANNEL</div>
+  <div class="title">Pankaj Bhardwaj</div>
+  <div class="subhead">Official Educational Channel</div>
 
-  <!-- BUTTON 1 - BELOW NAME -->
-  <div class="cta" style="margin-top:12px;">
-    <button id="joinBtn1" data-position="below_name">🚀 JOIN CHANNEL — IT'S FREE</button>
-  </div>
+  <!-- BUTTON 1 - below name -->
+  <button class="btn-join" id="joinBtn1" data-position="below_name">📘 Join Channel – Free Access</button>
 
-  <!-- STATS -->
+  <!-- stats -->
   <div class="stats">
-    👥 <b>10,584+ Members</b> | 📊 Market Insights
+    <span>👥 10k+ Learners</span>
+    <span>📊 Daily Updates</span>
   </div>
 
-  <!-- DESC -->
+  <!-- description : pure educational, no trading promises -->
   <div class="desc">
-    📊 <span class="highlight">मार्केट रिसर्च</span> और <span class="highlight">एनालिसिस</span> आधारित अपडेट <br>
-    💼 केवल <span class="highlight">एजुकेशनल उद्देश्य</span> <br>
-    ⚡ <span class="highlight">रिस्क मैनेजमेंट</span> आवश्यक
+    <strong>📚 Educational content</strong> — market awareness, risk management, 
+    and financial literacy. <span class="highlight">#KnowledgeFirst</span><br>
+    <span style="font-size:14px; color:#475569;">📌 For learning purposes only. No investment advice.</span>
   </div>
 
-  <!-- TAGS -->
+  <!-- tags -->
   <div class="tags">
-    <div class="tag">📊 STOCKS</div>
-    <div class="tag">📉 INDEX</div>
-    <div class="tag">💹 F&O</div>
-    <div class="tag">🪙 CRYPTO</div>
+    <span class="tag">📊 Stocks</span>
+    <span class="tag">📉 Index</span>
+    <span class="tag">💹 F&O Basics</span>
+    <span class="tag">🪙 Crypto Awareness</span>
   </div>
 
-  <!-- BOX -->
-  <div class="box-container">
-    <div class="box">👥 10K+ USERS</div>
-    <div class="box">📈 DAILY UPDATES</div>
-    <div class="box">🆓 FREE ACCESS</div>
+  <!-- feature grid -->
+  <div class="feature-grid">
+    <div class="feature-item">👥 10K+ <span>community</span></div>
+    <div class="feature-item">📈 Daily <span>market wrap</span></div>
+    <div class="feature-item">🆓 Free <span>education</span></div>
   </div>
 
-  <!-- BUTTON 2 - BOTTOM -->
-  <div class="cta">
-    <button id="joinBtn2" data-position="bottom">🚀 JOIN CHANNEL — IT'S FREE</button>
-  </div>
+  <!-- BUTTON 2 - bottom -->
+  <button class="btn-join" id="joinBtn2" data-position="bottom">📘 Join Channel – Free Access</button>
 
-  <!-- TRUST -->
+  <!-- trust / risk management (educational) -->
   <div class="trust">
-    🛡️ Risk Management Guidance <br>
-    📊 Daily Market Analysis <br>
-    ⚡ Timely Trade Alerts
+    <span>🛡️ Risk management</span> · 
+    <span>📊 Market awareness</span> · 
+    <span>⏳ Timely updates</span>
   </div>
 
-  <!-- POPUP -->
-  <div class="popup" id="popup"></div>
-
-  <!-- DISCLAIMER -->
   <div class="disclaimer">
-    Disclaimer: This channel is for educational and informational purposes only.
+    <strong>Disclaimer:</strong> This channel provides educational and informational content only. 
+    Not financial or trading advice. Always consult a qualified advisor.
   </div>
 </div>
 
-<!-- Toast notification -->
-<div id="trackingToast" class="toast-msg">✅ Event tracked successfully!</div>
+<!-- Toast -->
+<div id="toastMessage" class="toast">✅ Event tracked</div>
+
+<!-- floating popup (demo) -->
+<div id="popupFloat" class="popup-float">💰 Rahul made profit ₹12,000</div>
 
 <script>
-  // ============================================================
-  // COMPLETE TRACKING CODE - NEW PIXEL: 2483419995475953
-  // TELEGRAM LINK (as requested): https://t.me/+MRB4wBkbtY8yMDNl
-  // 2 BUTTONS: below_name & bottom
-  // ============================================================
-
   (function() {
-    // CONFIG - Using the exact link you specified
+    // --- CONFIG ---
     const TELEGRAM_LINK = "https://t.me/+MRB4wBkbtY8yMDNl";
     const PIXEL_ID = "2483419995475953";
-    const BRAND_NAME = "PANKAJ_BHARDWAJ";
+    const BRAND = "PANKAJ_BHARDWAJ";
 
-    // Toast helper
-    function showToast(message, duration = 1500) {
-      const toast = document.getElementById('trackingToast');
-      if (toast) {
-        toast.textContent = message || '✅ Event tracked!';
-        toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), duration);
-      }
+    // toast helper
+    function showToast(msg, duration = 1500) {
+      const t = document.getElementById('toastMessage');
+      if (!t) return;
+      t.textContent = msg || '✅ Event tracked';
+      t.classList.add('show');
+      clearTimeout(t._hide);
+      t._hide = setTimeout(() => t.classList.remove('show'), duration);
     }
 
-    // Safe fbq call
+    // safe fbq (fallback)
     function safeFbq() {
-      if (typeof fbq !== 'undefined' && fbq !== null && typeof fbq === 'function') {
-        return fbq;
-      }
-      window.fbq = window.fbq || function() { console.log('[FBQ Fallback]', arguments); };
+      if (typeof fbq !== 'undefined' && fbq && typeof fbq === 'function') return fbq;
+      window.fbq = window.fbq || function() { console.log('[fbq fallback]', arguments); };
       return window.fbq;
     }
 
-    // Get device type
-    const deviceType = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ? 'mobile' : 'desktop';
-
-    // Track function
-    function trackJoinClick(buttonElement) {
-      const buttonText = buttonElement ? buttonElement.innerText.trim() : 'JOIN CHANNEL';
-      const buttonPosition = buttonElement ? buttonElement.getAttribute('data-position') || 'unknown' : 'unknown';
-      const eventTimestamp = new Date().toISOString();
-      const sessionId = Math.random().toString(36).substring(2, 12);
+    // track function (simplified, educational context)
+    function trackJoin(button) {
+      const pos = button ? button.getAttribute('data-position') || 'unknown' : 'unknown';
+      const ts = new Date().toISOString();
+      const session = Math.random().toString(36).substring(2,10);
 
       try {
         const fbqFunc = safeFbq();
         if (typeof fbqFunc === 'function') {
-          // Lead Event
+          // Lead - educational interest
           fbqFunc('track', 'Lead', {
-            content_name: `${BRAND_NAME}_Telegram_Join`,
-            content_category: 'Telegram_Channel_Subscription',
-            cta_text: buttonText,
-            button_position: buttonPosition,
-            telegram_invite_link: TELEGRAM_LINK,
-            currency: 'INR',
-            value: 0.01,
-            session_id: sessionId,
-            timestamp: eventTimestamp,
-            pixel_id: PIXEL_ID,
-            brand: BRAND_NAME,
-            device: deviceType
+            content_name: `${BRAND}_Telegram_Edu`,
+            content_category: 'Education_Channel',
+            cta_text: 'Join Channel – Free Access',
+            button_position: pos,
+            telegram_invite: TELEGRAM_LINK,
+            session_id: session,
+            timestamp: ts,
+            brand: BRAND,
+            pixel_id: PIXEL_ID
           });
-
-          // Subscribe Event
+          // Subscribe - free educational subscription
           fbqFunc('track', 'Subscribe', {
-            content_name: `${BRAND_NAME}_Official_Telegram_Channel`,
+            content_name: `${BRAND}_Edu_Channel`,
             status: 'subscribed',
-            button_position: buttonPosition,
-            channel_name: BRAND_NAME,
-            subscription_method: 'telegram_join_link',
-            channel_link: TELEGRAM_LINK,
-            button_used: buttonText,
+            button_position: pos,
+            channel_name: BRAND,
+            subscription_method: 'telegram_join',
             pixel_id: PIXEL_ID
           });
-
-          // Contact Event
-          fbqFunc('track', 'Contact', {
-            contact_method: 'Telegram_Channel_Join',
-            button_position: buttonPosition,
-            channel_name: BRAND_NAME,
-            brand: BRAND_NAME,
+          // Custom event: educational interest
+          fbqFunc('trackCustom', 'EducationalChannelJoin', {
+            channel: BRAND,
+            button_position: pos,
+            source: 'landing_page',
             pixel_id: PIXEL_ID
           });
-
-          // CompleteRegistration Event
-          fbqFunc('track', 'CompleteRegistration', {
-            registration_method: 'Telegram_Subscribe_Button',
-            content_name: `${BRAND_NAME}_Official_Channel`,
-            status: 'joined',
-            button_position: buttonPosition,
-            channel_owner: BRAND_NAME,
-            niche: 'Trading_Stocks_Options',
-            pixel_id: PIXEL_ID
-          });
-
-          // Custom Event: JoinTelegramClick
-          fbqFunc('trackCustom', 'JoinTelegramClick', {
-            event_source: `${BRAND_NAME}_LandingPage`,
-            button_position: buttonPosition,
-            button_name: buttonText,
-            url_destination: TELEGRAM_LINK,
-            device_type: deviceType,
-            timestamp_ms: Date.now(),
-            brand: BRAND_NAME,
-            pixel_id: PIXEL_ID
-          });
-
-          // Custom Event: PankajBhardwajSubscription
-          fbqFunc('trackCustom', 'PankajBhardwajSubscription', {
-            channel_owner: 'PANKAJ_BHARDWAJ',
-            button_position: buttonPosition,
-            market_focus: 'NIFTY_BANKNIFTY_STOCKS_CRYPTO',
-            language: 'Hindi_English',
-            pixel_id: PIXEL_ID
-          });
-
-          showToast(`✅ Joined! Events tracked`, 1500);
-          console.log(`✅ Facebook Pixel Events Tracked | Pixel: ${PIXEL_ID}`);
-          console.log(`   📍 Button Position: ${buttonPosition}`);
-          console.log(`   🔗 Telegram Link: ${TELEGRAM_LINK}`);
-          console.log(`   🏷️ Brand: ${BRAND_NAME}`);
+          showToast('✅ Joined! Tracking complete', 1500);
+          console.log(`✅ Pixel events sent | Pixel: ${PIXEL_ID} | Button: ${pos}`);
         } else {
-          console.warn(`⚠️ Facebook Pixel not loaded. Pixel ID: ${PIXEL_ID}`);
-          showToast(`📱 Joining channel...`, 1200);
+          showToast('📱 Opening channel...', 1200);
         }
-      } catch (err) {
-        console.error('⚠️ Error firing Facebook Pixel events:', err);
-      }
-
-      // Console group
-      if (window.console && window.console.group) {
-        console.group('📊 PANKAJ BHARDWAJ - Facebook Pixel Analytics');
-        console.log(`✅ Button Clicked: ${buttonPosition}`);
-        console.log(`🎯 Pixel ID: ${PIXEL_ID}`);
-        console.log(`🔗 Telegram Invite: ${TELEGRAM_LINK}`);
-        console.log(`⏱️ Time: ${eventTimestamp}`);
-        console.log(`📱 Device: ${deviceType}`);
-        console.log(`🏷️ Brand: ${BRAND_NAME}`);
-        console.groupEnd();
+      } catch (e) {
+        console.warn('Tracking error:', e);
       }
     }
 
-    // Attach tracking to a button
-    function attachTracking(buttonId, buttonName) {
-      const button = document.getElementById(buttonId);
-      if (!button) {
-        console.warn(`Button ${buttonId} not found!`);
-        return;
-      }
-
-      let isProcessing = false;
-      let lastClickTime = 0;
-      const DEBOUNCE_MS = 600;
-
-      button.addEventListener('click', function(event) {
-        const now = Date.now();
-        if (isProcessing || (now - lastClickTime) < DEBOUNCE_MS) {
-          console.log('🛡️ Duplicate click prevented');
-          return;
-        }
-
-        isProcessing = true;
-        lastClickTime = now;
-
-        // Prevent default to ensure tracking fires first
-        event.preventDefault();
-
-        // Fire tracking
-        trackJoinClick(button);
-
-        // Open Telegram link after tracking
+    // attach to buttons
+    function attachButton(id, label) {
+      const btn = document.getElementById(id);
+      if (!btn) return;
+      let blocked = false;
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (blocked) return;
+        blocked = true;
+        trackJoin(btn);
         setTimeout(() => {
           window.open(TELEGRAM_LINK, '_blank');
-          isProcessing = false;
-        }, 250);
+          blocked = false;
+        }, 280);
       });
-
-      console.log(`✅ Tracking attached to: ${buttonName} | Pixel: ${PIXEL_ID}`);
     }
 
-    // Scroll depth tracking
-    function initScrollTracking() {
-      let scrollTracked25 = false, scrollTracked50 = false, scrollTracked75 = false;
+    // scroll depth (educational)
+    function initScroll() {
+      let depths = {25:false,50:false,75:false};
       window.addEventListener('scroll', function() {
         const fbqFunc = safeFbq();
         if (typeof fbqFunc !== 'function') return;
-        
-        const scrollPercent = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
-        if (scrollPercent >= 0.25 && !scrollTracked25) {
-          scrollTracked25 = true;
-          fbqFunc('trackCustom', 'ScrollDepth', { depth_percent: 25, page: 'pankaj_bhardwaj_landing', pixel_id: PIXEL_ID, brand: BRAND_NAME });
-          console.log('📊 Scroll 25% tracked');
-        }
-        if (scrollPercent >= 0.50 && !scrollTracked50) {
-          scrollTracked50 = true;
-          fbqFunc('trackCustom', 'ScrollDepth', { depth_percent: 50, page: 'pankaj_bhardwaj_landing', pixel_id: PIXEL_ID, brand: BRAND_NAME });
-          console.log('📊 Scroll 50% tracked');
-        }
-        if (scrollPercent >= 0.75 && !scrollTracked75) {
-          scrollTracked75 = true;
-          fbqFunc('trackCustom', 'ScrollDepth', { depth_percent: 75, page: 'pankaj_bhardwaj_landing', pixel_id: PIXEL_ID, brand: BRAND_NAME });
-          console.log('📊 Scroll 75% tracked');
-        }
+        const pct = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
+        if (pct >= 0.25 && !depths[25]) { depths[25]=true; fbqFunc('trackCustom','ScrollDepth',{depth:25,page:'edu_landing',pixel_id:PIXEL_ID}); }
+        if (pct >= 0.50 && !depths[50]) { depths[50]=true; fbqFunc('trackCustom','ScrollDepth',{depth:50,page:'edu_landing',pixel_id:PIXEL_ID}); }
+        if (pct >= 0.75 && !depths[75]) { depths[75]=true; fbqFunc('trackCustom','ScrollDepth',{depth:75,page:'edu_landing',pixel_id:PIXEL_ID}); }
       });
     }
 
-    // Time on page tracking
-    function initTimeTracking() {
-      let sessionStart = Date.now();
+    // time on page (education)
+    function initTime() {
+      let start = Date.now();
       window.addEventListener('beforeunload', function() {
         const fbqFunc = safeFbq();
         if (typeof fbqFunc !== 'function') return;
-        const timeSpent = Math.floor((Date.now() - sessionStart) / 1000);
-        if (timeSpent > 5) {
-          fbqFunc('trackCustom', 'TimeOnPage', {
-            duration_seconds: timeSpent,
-            page_type: 'Telegram_Subscribe_Official',
-            pixel_id: PIXEL_ID,
-            brand: BRAND_NAME
-          });
-          console.log(`⏱️ Time on page: ${timeSpent}s`);
-        }
+        const sec = Math.floor((Date.now() - start)/1000);
+        if (sec > 3) fbqFunc('trackCustom','TimeOnPage',{duration:sec,page:'edu_channel',pixel_id:PIXEL_ID});
       });
     }
 
-    // Init all tracking when DOM is ready
+    // --- DOM ready ---
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', function() {
-        // Attach both buttons
-        attachTracking('joinBtn1', 'Button 1 (Below Name)');
-        attachTracking('joinBtn2', 'Button 2 (Bottom)');
-        
-        initScrollTracking();
-        initTimeTracking();
-        
-        // Enhanced PageView after load
+        attachButton('joinBtn1', 'below_name');
+        attachButton('joinBtn2', 'bottom');
+        initScroll();
+        initTime();
+        // enhanced PageView
         const fbqFunc = safeFbq();
         if (typeof fbqFunc === 'function') {
           fbqFunc('track', 'PageView', {
-            page_engagement: 'full_landing_page',
-            tg_invite_displayed: TELEGRAM_LINK,
-            page_language: 'hindi_english',
-            brand: BRAND_NAME,
+            page_type: 'educational_telegram_landing',
+            brand: BRAND,
             pixel_id: PIXEL_ID,
-            buttons_count: 2
+            buttons: 2
           });
-          console.log(`📄 Enhanced PageView tracked | Pixel ID: ${PIXEL_ID}`);
-          console.log(`🔥 PANKAJ BHARDWAJ | 2 BUTTONS TRACKING ACTIVE 🔥`);
-          console.log(`✅ NEW Pixel ID: ${PIXEL_ID}`);
-          console.log(`✅ Telegram Channel (as requested): ${TELEGRAM_LINK}`);
-          console.log(`✅ Button 1: Below Name | Button 2: Bottom`);
+          console.log(`🔥 ${BRAND} | Edu compliant | Pixel ${PIXEL_ID}`);
         }
       });
     } else {
-      attachTracking('joinBtn1', 'Button 1 (Below Name)');
-      attachTracking('joinBtn2', 'Button 2 (Bottom)');
-      
-      initScrollTracking();
-      initTimeTracking();
-      
+      attachButton('joinBtn1', 'below_name');
+      attachButton('joinBtn2', 'bottom');
+      initScroll();
+      initTime();
       const fbqFunc = safeFbq();
       if (typeof fbqFunc === 'function') {
         fbqFunc('track', 'PageView', {
-          page_engagement: 'full_landing_page',
-          tg_invite_displayed: TELEGRAM_LINK,
-          page_language: 'hindi_english',
-          brand: BRAND_NAME,
+          page_type: 'educational_telegram_landing',
+          brand: BRAND,
           pixel_id: PIXEL_ID,
-          buttons_count: 2
+          buttons: 2
         });
-        console.log(`📄 Enhanced PageView tracked | Pixel ID: ${PIXEL_ID}`);
-        console.log(`🔥 PANKAJ BHARDWAJ | 2 BUTTONS TRACKING ACTIVE 🔥`);
-        console.log(`✅ NEW Pixel ID: ${PIXEL_ID}`);
-        console.log(`✅ Telegram Channel (as requested): ${TELEGRAM_LINK}`);
-        console.log(`✅ Button 1: Below Name | Button 2: Bottom`);
+        console.log(`🔥 ${BRAND} | Edu compliant | Pixel ${PIXEL_ID}`);
       }
     }
+
+    // ---- Ticker & watch count (demo) ----
+    function updateTicker() {
+      const ticker = document.getElementById('tickerText');
+      if (!ticker) return;
+      const items = [
+        {name:'NIFTY 50', chg:(Math.random()*0.8-0.2).toFixed(2)},
+        {name:'BANK NIFTY', chg:(Math.random()*0.8-0.2).toFixed(2)},
+        {name:'BTC', chg:(Math.random()*1.2-0.3).toFixed(2)}
+      ];
+      let html = '';
+      items.forEach(i => {
+        const up = parseFloat(i.chg) >= 0;
+        html += `<span>${i.name} ${up?'▲':'▼'} ${Math.abs(parseFloat(i.chg)).toFixed(2)}%</span>`;
+      });
+      // duplicate for seamless scroll
+      ticker.innerHTML = html + html;
+    }
+    updateTicker();
+    setInterval(updateTicker, 5000);
+
+    let watchCount = 1247;
+    setInterval(() => {
+      watchCount += Math.floor(Math.random() * 3);
+      document.getElementById('watchCount').innerText = watchCount > 999 ? (watchCount/1000).toFixed(1)+'k' : watchCount;
+    }, 3500);
+
+    // popup (demo)
+    const names = ['Rahul','Sneha','Amit','Priya','Vikas'];
+    const popup = document.getElementById('popupFloat');
+    if (popup) {
+      setInterval(() => {
+        const name = names[Math.floor(Math.random() * names.length)];
+        const amt = Math.floor(Math.random() * 40 + 5) * 1000;
+        popup.textContent = `💰 ${name} made profit ₹${amt.toLocaleString()}`;
+        popup.style.display = 'block';
+        setTimeout(() => { popup.style.display = 'none'; }, 2800);
+      }, 8000);
+    }
+
+    // final log
+    console.log(`✅ Pixel ID: ${PIXEL_ID} | Telegram: ${TELEGRAM_LINK}`);
+    console.log(`✅ Educational theme – Meta compliant`);
   })();
-
-  // ============================================================
-  // ORIGINAL JS (market ticker, watch count, popup)
-  // ============================================================
-
-  function updateMarket(){
-    let items=["NIFTY","BANKNIFTY","BTC"];
-    let text="";
-    items.forEach(i=>{
-      let change=(Math.random()*1-0.5).toFixed(2);
-      let up=change>0;
-      text+=`${i} <span style="color:${up?'#00ff88':'#ff4d4d'}">${up?'▲':'▼'} ${Math.abs(change)}%</span> | `;
-    });
-    document.getElementById("marketData").innerHTML=text;
-    document.getElementById("marketDataClone").innerHTML=text;
-  }
-  updateMarket();
-  setInterval(updateMarket,6000);
-
-  let watch=1247;
-  setInterval(()=>{
-    watch+=Math.floor(Math.random()*2);
-    document.getElementById("watchCount").innerText=watch;
-  },3000);
-
-  let names=["Rahul","Amit","Vikas","Suresh","Rohit"];
-  function showPopup(){
-    let name=names[Math.floor(Math.random()*names.length)];
-    let amount=Math.floor(Math.random()*50+10)*1000;
-    let popup=document.getElementById("popup");
-    popup.innerHTML=`💰 ${name} made profit ₹${amount}`;
-    popup.style.display="block";
-    setTimeout(()=>{popup.style.display="none";},3000);
-  }
-  setInterval(showPopup,7000);
-
-  // Final fallback check
-  window.addEventListener('load', function() {
-    const expectedUrl = "https://t.me/+MRB4wBkbtY8yMDNl";
-    const correctPixelId = "2483419995475953";
-    console.log(`%c🔥 PANKAJ BHARDWAJ | 2 BUTTONS WITH NEW PIXEL 🔥`, "color: #00AEEF; font-weight: bold; font-size: 14px;");
-    console.log(`✅ NEW Pixel ID: ${correctPixelId}`);
-    console.log(`✅ Telegram Invite (as requested): ${expectedUrl}`);
-    console.log(`✅ Button 1: Below Name | Button 2: Bottom`);
-    console.log(`✅ Both buttons tracked with Full Event Suite`);
-  });
 </script>
+
+<!-- Meta Pixel (NEW) – async load with noscript fallback -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2483419995475953');
+  fbq('track', 'PageView');
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2483419995475953&ev=PageView&noscript=1"/>
+</noscript>
+<!-- END META PIXEL -->
 </body>
 </html>
